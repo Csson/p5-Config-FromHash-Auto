@@ -16,10 +16,14 @@ prereqs:
 
 plugins:
   - +config: Author::CSSON
+    is_private: 1
 
   - +add_plugin: TravisYML
     +before: Git::Tag
     perl_version: 5.14 5.20
+
+  - +extend_plugin: UploadToStratopan
+    repo: TheFirst
 
 ---
 doctype: weaver
