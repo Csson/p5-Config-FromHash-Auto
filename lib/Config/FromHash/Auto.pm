@@ -138,6 +138,7 @@ sub autoconfigure {
     if(!defined $mode) {
         die qq{Config::FromHash::Auto can't set the mode. Possible reasons: 1. There is no [$mode_file] 2. 'mode_env' in autoconf.conf is set to [@{[ $autoconf->get('mode_env') ]}], but it is not set.};
     }
+    chomp $mode;
 
     if(List::Util::none { $mode eq $_ } keys %{ $autoconf->data->{'modes'} }) {
         die sprintf qq{Config::FromHash::Auto can't set the mode. Attempt to set the mode to '%s', but allowed values in conf.autoconf are: (%s)}, $mode, join ', ' => sort keys %{ $autoconf->data->{'modes'} };
